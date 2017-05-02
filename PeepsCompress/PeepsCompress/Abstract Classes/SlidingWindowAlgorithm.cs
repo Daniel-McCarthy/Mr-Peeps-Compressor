@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.Collections.Generic;
 
 namespace PeepsCompress
 {
@@ -23,9 +18,9 @@ namespace PeepsCompress
             }
 
             return matchPositons.ToArray();
-        } //Consider moving this into a SlidingAlgorithm parent class
+        }
 
-        public int[] findLargestMatch(ref List<byte> dictionary, int[] matchesFound, ref byte[] file, int fileIndex)
+        public int[] findLargestMatch(ref List<byte> dictionary, int[] matchesFound, ref byte[] file, int fileIndex, int maxMatch)
         {
             int[] matchSizes = new int[matchesFound.Length];
 
@@ -34,7 +29,7 @@ namespace PeepsCompress
                 int matchSize = 1;
                 bool matchFound = true;
 
-                while (matchFound && (fileIndex + matchSize < file.Length && matchesFound[i] + matchSize < dictionary.Count))
+                while (matchFound && matchSize < maxMatch && (fileIndex + matchSize < file.Length) && (matchesFound[i] + matchSize < dictionary.Count)) //NOTE: This could be relevant to compression issues? I suspect it's more related to writing
                 {
                     if (file[fileIndex + matchSize] == dictionary[matchesFound[i] + matchSize])
                     {
@@ -66,7 +61,6 @@ namespace PeepsCompress
 
             return bestMatch;
 
-        } //Consider moving this into a SlidingAlgorithm parent class
-
+        }
     }
 }
