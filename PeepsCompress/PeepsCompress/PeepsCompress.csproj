@@ -61,7 +61,6 @@
     <Compile Include="MIO0.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Abstract Classes\RunLengthAlgorithm.cs" />
     <Compile Include="Abstract Classes\SlidingWindowAlgorithm.cs" />
     <Compile Include="YAY0.cs" />
     <Compile Include="YAZ0.cs" />
