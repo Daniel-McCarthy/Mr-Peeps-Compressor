@@ -142,11 +142,8 @@ namespace PeepsCompress
             FileStream inputFile = File.Open(path, FileMode.Open);
             BigEndianBinaryReader br = new BigEndianBinaryReader(inputFile);
             byte[] file = br.ReadBytes((int)inputFile.Length);
-            //string mio0File = Encoding.ASCII.GetString(file);
-            //int offset = mio0File.IndexOf("MIO0");
-            //inputFile.Position = offset;
 
-            return compress(file, 0);//, offset);
+            return compress(file, 0);
         }
 
         public override byte[] compress(byte[] file, int offset)
@@ -156,11 +153,6 @@ namespace PeepsCompress
 
             List<byte> uncompressedData = new List<byte>();
             List<int[]> compressedData = new List<int[]>();
-
-            List<byte> match = new List<byte>();
-
-
-            string fileString = fileString = "";
 
             int maxDictionarySize = 4096;
             int maxMatchLength = 18;
@@ -216,11 +208,7 @@ namespace PeepsCompress
                 }
             }
 
-
-
-            byte[] compressedFile = buildMIO0CompressedBlock(ref layoutBits, ref uncompressedData, ref compressedData, decompressedSize, offset);
-
-            return compressedFile;
+            return buildMIO0CompressedBlock(ref layoutBits, ref uncompressedData, ref compressedData, decompressedSize, offset);
         }
 
         public byte[] buildMIO0CompressedBlock(ref List<byte> layoutBits, ref List<byte> uncompressedData, ref List<int[]> offsetLengthPairs, int decompressedSize, int offset)
@@ -243,6 +231,7 @@ namespace PeepsCompress
             //assemble layout bits into bytes
             while (layoutBits.Count > 0)                            //convert layout binary bits to bytes
             {
+                //pad bits to full byte if necessary
                 while (layoutBits.Count < 8)                         //pad last byte if necessary
                 {
                     layoutBits.Add(0);
