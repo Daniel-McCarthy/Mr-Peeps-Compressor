@@ -40,8 +40,8 @@
             this.decompressRadioButton = new System.Windows.Forms.RadioButton();
             this.compressionModeGroupBox = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.algorithmLabel = new System.Windows.Forms.Label();
             this.inputModeLabel = new System.Windows.Forms.Label();
+            this.algorithmLabel = new System.Windows.Forms.Label();
             this.compressionModeGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +70,7 @@
             this.compressionAlgorithmComboBox.FormattingEnabled = true;
             this.compressionAlgorithmComboBox.Items.AddRange(new object[] {
             "MIO0",
+            "YAY0",
             "YAZ0"});
             this.compressionAlgorithmComboBox.Location = new System.Drawing.Point(85, 13);
             this.compressionAlgorithmComboBox.Name = "compressionAlgorithmComboBox";
@@ -148,15 +149,6 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             // 
-            // algorithmLabel
-            // 
-            this.algorithmLabel.AutoSize = true;
-            this.algorithmLabel.Location = new System.Drawing.Point(10, 16);
-            this.algorithmLabel.Name = "algorithmLabel";
-            this.algorithmLabel.Size = new System.Drawing.Size(53, 13);
-            this.algorithmLabel.TabIndex = 7;
-            this.algorithmLabel.Text = "Algorithm:";
-            // 
             // inputModeLabel
             // 
             this.inputModeLabel.AutoSize = true;
@@ -165,6 +157,15 @@
             this.inputModeLabel.Size = new System.Drawing.Size(64, 13);
             this.inputModeLabel.TabIndex = 8;
             this.inputModeLabel.Text = "Input Mode:";
+            // 
+            // algorithmLabel
+            // 
+            this.algorithmLabel.AutoSize = true;
+            this.algorithmLabel.Location = new System.Drawing.Point(10, 16);
+            this.algorithmLabel.Name = "algorithmLabel";
+            this.algorithmLabel.Size = new System.Drawing.Size(53, 13);
+            this.algorithmLabel.TabIndex = 7;
+            this.algorithmLabel.Text = "Algorithm:";
             // 
             // MainGUI
             // 

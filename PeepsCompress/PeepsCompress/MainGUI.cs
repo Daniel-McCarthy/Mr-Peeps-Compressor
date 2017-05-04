@@ -34,6 +34,11 @@ namespace PeepsCompress
                         }
                     case 1:
                         {
+                            algorithm = new YAY0();
+                            break;
+                        }
+                    case 2:
+                        {
                             algorithm = new YAZ0();
                             break;
                         }

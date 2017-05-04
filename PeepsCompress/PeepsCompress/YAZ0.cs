@@ -18,7 +18,7 @@ namespace PeepsCompress
             List<int[]> compressedData = new List<int[]>();
 
             int maxDictionarySize = 4096;
-            int minMatchLength = 3;;
+            int minMatchLength = 3;
             int maxMatchLength = 255 + 0x12;
             int decompressedSize = 0;
 
