@@ -10,11 +10,11 @@ namespace PeepsCompress
 {
     class YAY0 : SlidingWindowAlgorithm
     {
+
         public override byte[] compress(byte[] file, int offset)
         {
             throw new NotImplementedException();
         }
-
         public override byte[] decompress(BinaryReader br, int offset, FileStream inputFile)
         {
             List<byte> newFile = new List<byte>();
@@ -74,7 +74,9 @@ namespace PeepsCompress
 
                                 if (byte1Lower == 0)
                                 {
+                                    inputFile.Seek(uncompressedOffset, SeekOrigin.Begin);
                                     finalLength = br.ReadByte() + 0x12;
+                                    uncompressedOffset++;
                                 }
                                 else
                                 {
@@ -91,12 +93,13 @@ namespace PeepsCompress
                             }
                         }
                     }
+                
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-
+                
                 return newFile.ToArray();
             }
             else
