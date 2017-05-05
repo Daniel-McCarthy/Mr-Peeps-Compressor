@@ -58,12 +58,12 @@
     <Compile Include="MainGUI.Designer.cs">
       <DependentUpon>MainGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="MIO0.cs" />
+    <Compile Include="Algorithm Classes\MIO0.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Abstract Classes\SlidingWindowAlgorithm.cs" />
-    <Compile Include="YAY0.cs" />
-    <Compile Include="YAZ0.cs" />
+    <Compile Include="Algorithm Classes\YAY0.cs" />
+    <Compile Include="Algorithm Classes\YAZ0.cs" />
     <EmbeddedResource Include="MainGUI.resx">
       <DependentUpon>MainGUI.cs</DependentUpon>
     </EmbeddedResource>
