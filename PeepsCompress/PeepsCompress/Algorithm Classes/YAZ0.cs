@@ -245,13 +245,22 @@ namespace PeepsCompress
             
         }
 
-        public override byte[] compressInitialization(string path)
+        public override byte[] compressInitialization(string path, bool fileInputMode)
         {
-            FileStream inputFile = File.Open(path, FileMode.Open);
-            BigEndianBinaryReader br = new BigEndianBinaryReader(inputFile);
-            byte[] file = br.ReadBytes((int)inputFile.Length);
+            if (fileInputMode)
+            {
+                FileStream inputFile = File.Open(path, FileMode.Open);
+                BigEndianBinaryReader br = new BigEndianBinaryReader(inputFile);
+                byte[] file = br.ReadBytes((int)inputFile.Length);
 
-            return compress(file, 0);
+                return compress(file, 0);
+            }
+            else
+            {
+                byte[] stringToFile = Encoding.ASCII.GetBytes(path);
+
+                return compress(stringToFile, 0);
+            }
         }
         public override byte[] decompressInitialization(string path)
         {

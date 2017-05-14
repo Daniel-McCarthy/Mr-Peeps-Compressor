@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
@@ -18,9 +17,21 @@ namespace PeepsCompress
             return filePathTextBox.Text;
         }
 
+        public bool checkTextInput()
+        {
+            if(inputMethodComboBox.SelectedIndex == 1 && returnFilePath() != "")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private void beginButton_Click(object sender, EventArgs e)
         {
-            if (File.Exists(returnFilePath())) //TODO: Change this, it prevents string input mode.
+            if (File.Exists(returnFilePath()) || checkTextInput())
             {
 
                 Compression algorithm;
@@ -56,7 +67,7 @@ namespace PeepsCompress
                     if (inputMethodComboBox.SelectedIndex == 0)
                     {
                         //file input
-                        byte[] compressedFile = algorithm.compressInitialization(returnFilePath());
+                        byte[] compressedFile = algorithm.compressInitialization(returnFilePath(), true);
 
 
                         if (saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -79,7 +90,7 @@ namespace PeepsCompress
                     else
                     {
                         //string input
-                        byte[] compressedFile = algorithm.compress(Encoding.ASCII.GetBytes(filePathTextBox.Text), 0);//"How much wood would a woodchuck chuck if a woodchuck could chuck wood?"), 0);
+                        byte[] compressedFile = algorithm.compressInitialization(returnFilePath(), false);
                         if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                         {
                             try
