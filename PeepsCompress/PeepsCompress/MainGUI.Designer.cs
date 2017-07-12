@@ -179,7 +179,7 @@
             this.Controls.Add(this.filePathTextBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainGUI";
-            this.Text = "Mr. Peeps\' Compressor v0.1";
+            this.Text = "Mr. Peeps\' Compressor v0.2";
             this.Load += new System.EventHandler(this.MainGUI_Load);
             this.compressionModeGroupBox.ResumeLayout(false);
             this.compressionModeGroupBox.PerformLayout();
