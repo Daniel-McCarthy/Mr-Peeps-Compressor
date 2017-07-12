@@ -124,7 +124,7 @@ namespace PeepsCompress
                 int compressedInt = ((adjustedLength << 12) | adjustedOffset - 1);
 
                 byte[] compressed2Byte = new byte[2];
-                compressed2Byte[0] = (byte)(compressedInt & 0XFF);
+                compressed2Byte[0] = (byte)(compressedInt & 0xFF);
                 compressed2Byte[1] = (byte)((compressedInt >> 8) & 0xFF);
 
                 compressedDataBytes.Add(compressed2Byte[1]);
@@ -144,7 +144,7 @@ namespace PeepsCompress
 
             compressedOffset += layoutBytes.Count;
 
-            //add final compresseed offset
+            //add final compressed offset
             byte[] compressedOffsetArray = BitConverter.GetBytes(compressedOffset);
             Array.Reverse(compressedOffsetArray);
             finalYAY0Block.AddRange(compressedOffsetArray);
@@ -173,7 +173,7 @@ namespace PeepsCompress
                 {
                     BitArray arrayOfBits = new BitArray(new byte[1] { layoutBytes[i] });
 
-                    for (int j = 7; j > -1 && finalYAY0Block.Count < decompressedSize; j--)
+                    for (int j = 7; ((j > -1) && (uncompressedData.Count > 0) && (compressedDataBytes.Count > 0)) ; j--)
                     {
                         if (arrayOfBits[j] == true)
                         {

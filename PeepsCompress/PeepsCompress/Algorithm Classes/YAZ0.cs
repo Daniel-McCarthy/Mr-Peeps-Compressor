@@ -143,7 +143,7 @@ namespace PeepsCompress
 
                 BitArray arrayOfBits = new BitArray(new byte[1] { layoutBytes[i] });
 
-                for (int j = 7; j > -1 && finalYAZ0Block.Count < decompressedSize; j--)
+                for (int j = 7; ((j > -1) && (uncompressedData.Count > 0) && (compressedDataBytes.Count > 0)); j--)
                 {
                     if(arrayOfBits[j] == true)
                     {

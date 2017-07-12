@@ -262,7 +262,7 @@ namespace PeepsCompress
 
             compressedOffset += layoutBytes.Count;
 
-            //add final compresseed offset
+            //add final compressed offset
             byte[] compressedOffsetArray = BitConverter.GetBytes(compressedOffset);
             Array.Reverse(compressedOffsetArray);
             finalMIO0Block.AddRange(compressedOffsetArray);
