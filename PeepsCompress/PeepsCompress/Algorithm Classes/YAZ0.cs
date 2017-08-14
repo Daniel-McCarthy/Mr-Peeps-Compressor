@@ -235,6 +235,9 @@ namespace PeepsCompress
                 {
                     MessageBox.Show(ex.Message);
                 }
+
+                inputFile.Close();
+
                 return newFile.ToArray();
             }
             else
@@ -252,6 +255,8 @@ namespace PeepsCompress
                 FileStream inputFile = File.Open(path, FileMode.Open);
                 BigEndianBinaryReader br = new BigEndianBinaryReader(inputFile);
                 byte[] file = br.ReadBytes((int)inputFile.Length);
+
+                inputFile.Close();
 
                 return compress(file, 0);
             }
